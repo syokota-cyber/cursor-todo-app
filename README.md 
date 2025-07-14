@@ -1,0 +1,80 @@
+もちろんです！  
+以下がToDoリストアプリ用のREADME.mdの本文サンプルです。  
+そのままコピペしてお使いください。
+
+---
+
+# ToDoリストアプリ
+
+## �� 概要
+このアプリは、シンプルなToDoリスト管理ツールです。タスクの追加、完了、削除、一覧表示など、日常的なタスク管理を簡単に行うことができます。
+
+## ✨ 主な機能
+- タスクの追加
+- タスクの完了/未完了切り替え
+- タスクの削除
+- タスク一覧の表示
+- 優先度の設定（high/medium/low）
+
+## 📋 必要条件
+- Python 3.8以上
+- 標準ライブラリのみ使用（外部パッケージ不要）
+
+## 🛠️ インストール方法
+
+```bash
+git clone https://github.com/syokota-cyber/cursor-todo-app.git
+cd cursor-todo-app
+```
+
+## 💻 使い方
+
+```bash
+python src/main.py
+```
+
+コマンドライン上でメニューが表示されるので、案内に従って操作してください。
+
+## 🧪 テストの実行
+
+```bash
+python -m pytest tests/
+```
+
+## 📁 ディレクトリ構成
+
+```
+cursor-todo-app/
+├── README.md
+├── requirements.txt
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   └── todo.py
+├── tests/
+│   ├── __init__.py
+│   └── test_todo.py
+└── docs/
+    └── usage.md
+```
+
+## �� 貢献方法
+
+1. このリポジトリをフォーク
+2. 機能ブランチを作成（例: `git checkout -b feature/your-feature`）
+3. 変更をコミット（例: `git commit -m 'Add new feature'`）
+4. ブランチにプッシュ（例: `git push origin feature/your-feature`）
+5. プルリクエストを作成
+
+## �� ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+## 👨‍💻 開発者
+
+syokota-cyber
+
+## �� バージョン履歴
+
+- v1.0.0 - 初期リリース（予定）
+
