@@ -16,13 +16,22 @@ class Todo:
         Returns:
             int: 追加されたタスクのID
         """
+        # 既存のタスクから最大IDを取得
+        max_id = 0
+        for task in self.tasks:
+            if task['id'] > max_id:
+                max_id = task['id']
+        
+        # 新しいIDは最大ID + 1
+        new_id = max_id + 1
+        
         task = {
-            'id': len(self.tasks) + 1,
+            'id': new_id,
             'title': title,
             'description': description,
             'priority': priority,
             'completed': False,
-            'created_at': '2025-07-16'  # 簡易版（実際はdatetime.now()を使う）
+            'created_at': '2025-07-17'  # 簡易版（実際はdatetime.now()を使う）
         }
         self.tasks.append(task)
         return task['id']
