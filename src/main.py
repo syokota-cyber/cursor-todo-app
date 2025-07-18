@@ -8,14 +8,15 @@ def main():
     print("=== ToDoリストアプリ ===")
     print("1. タスクを追加")
     print("2. タスク一覧を表示")
-    print("3. 期限別タスク表示")
-    print("4. 期限切れタスク表示")
-    print("5. タスクを完了にする")
-    print("6. タスクを削除")
-    print("7. 終了")
+    print("3. 優先度別タスク表示")
+    print("4. 期限別タスク表示")
+    print("5. 期限切れタスク表示")
+    print("6. タスクを完了にする")
+    print("7. タスクを削除")
+    print("8. 終了")
     
     while True:
-        choice = input("\n選択してください (1-7): ")
+        choice = input("\n選択してください (1-8): ")
         
         if choice == "1":
             title = input("タスクのタイトル: ")
@@ -48,6 +49,21 @@ def main():
                         print(f"   説明: {task['description']}")
                         
         elif choice == "3":
+            priority = input("表示する優先度 (high/medium/low): ")
+            tasks = todo.get_tasks_by_priority(priority)
+            if not tasks:
+                print(f"優先度 '{priority}' のタスクがありません。")
+            else:
+                print(f"\n=== 優先度 '{priority}' のタスク ===")
+                for task in tasks:
+                    status = "✓" if task['completed'] else "□"
+                    priority_icon = {"high": "🔴", "medium": "��", "low": "🟢"}.get(task['priority'], "⚪")
+                    due_info = f" ��{task['due_date']}" if task.get('due_date') else ""
+                    print(f"{task['id']}. [{status}] {priority_icon} {task['title']}{due_info}")
+                    if task['description']:
+                        print(f"   説明: {task['description']}")
+                        
+        elif choice == "4":
             print("期限別表示オプション:")
             print("1. 期限ありのタスク")
             print("2. 期限なしのタスク")
@@ -80,7 +96,7 @@ def main():
                     if task['description']:
                         print(f"   説明: {task['description']}")
                         
-        elif choice == "4":
+        elif choice == "5":
             overdue_tasks = todo.get_overdue_tasks()
             if not overdue_tasks:
                 print("期限切れのタスクはありません。")
@@ -92,21 +108,21 @@ def main():
                     if task['description']:
                         print(f"   説明: {task['description']}")
                         
-        elif choice == "5":
+        elif choice == "6":
             task_id = int(input("完了にするタスクのID: "))
             if todo.complete_task(task_id):
                 print("タスクを完了にしました。")
             else:
                 print("タスクが見つかりません。")
                 
-        elif choice == "6":
+        elif choice == "7":
             task_id = int(input("削除するタスクのID: "))
             if todo.delete_task(task_id):
                 print("タスクを削除しました。")
             else:
                 print("タスクが見つかりません。")
                 
-        elif choice == "7":
+        elif choice == "8":
             print("アプリケーションを終了します。")
             break
             
