@@ -1,5 +1,11 @@
 import unittest
-from src.todo import Todo
+import sys
+import os
+
+# srcディレクトリをパスに追加
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
+from todo import Todo
 from datetime import datetime
 
 class TestTodo(unittest.TestCase):

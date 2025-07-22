@@ -130,4 +130,29 @@ def main():
             print("無効な選択です。")
 
 if __name__ == "__main__":
-    main()
+    import sys
+    
+    # テストモードの確認
+    if len(sys.argv) > 1 and sys.argv[1] == "--test":
+        print("=== アプリケーションテストモード ===")
+        print("ToDoアプリケーションの基本機能をテストします...")
+        
+        # 基本的なテスト
+        todo = Todo()
+        
+        # タスク追加テスト
+        task_id = todo.add_task("テストタスク", "テスト用", "high", "2025-07-25")
+        print(f"✓ タスク追加テスト: ID {task_id}")
+        
+        # タスク完了テスト
+        if todo.complete_task(task_id):
+            print("✓ タスク完了テスト: 成功")
+        
+        # タスク削除テスト
+        if todo.delete_task(task_id):
+            print("✓ タスク削除テスト: 成功")
+        
+        print("=== アプリケーションテスト完了 ===")
+        sys.exit(0)
+    else:
+        main()
