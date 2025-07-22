@@ -2,10 +2,11 @@ import unittest
 import sys
 import os
 
-# srcディレクトリをパスに追加
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+# プロジェクトルートディレクトリをパスに追加
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
 
-from todo import Todo
+from src.todo import Todo
 from datetime import datetime
 
 class TestTodo(unittest.TestCase):
